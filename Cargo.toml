@@ -6,4 +6,4 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-fes = { path = "../FeS" }
+fes = { git = "https://github.com/NailLegProcessorDivide/FeS.git", branch = "main" }
