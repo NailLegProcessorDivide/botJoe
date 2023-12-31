@@ -1,6 +1,6 @@
 use std::{fs::File, io::{BufReader, BufRead}, collections::HashMap};
 
-use fes::{board::GameState, pgn::{read_pgn_file, StrIter}};
+use fes::{board::{GameState, ChessGame}, pgn::{read_pgn_file, StrIter}};
 
 fn main() -> std::io::Result<()> {
     let game = GameState::from_fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
@@ -23,8 +23,8 @@ fn main() -> std::io::Result<()> {
                 key_count.insert(k, 1u64);
             }
         }
-        if game_count >= 5 {
-            break;
+        if game_count % 100000 == 0 {
+            println!("games {}", game_count)
         }
     }
     println!("games: {game_count}");
